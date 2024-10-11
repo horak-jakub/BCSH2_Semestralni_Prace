@@ -1,0 +1,6 @@
+-sledované entity - místa konání, závody (půlmaraton, maraton, ...), osoby (běžci, organizátoři), ceny
+-každá osoba může být zapsaná k jednomu nebo více závodům, každý závod má místo konání, každá cena patří k jednomu závodu a jednomu běžci
+-uživatel může upravovat, přidávat nebo odstraňovat všechny typy entit
+-uživatel může zobrazit seznamy běžců a organizátorů pro dané závody; závody, na které je daný běžec zapsán a ceny, které vyhrál
+-aplikace umí vyhledávat osoby podle místa a závodu a jména
+-pro prezenci je použito knihovny LiteDB (https://github.com/mbdavid/LiteDB)
