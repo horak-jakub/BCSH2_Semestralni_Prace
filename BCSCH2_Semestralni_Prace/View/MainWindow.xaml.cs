@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BCSCH2_Semestralni_Prace.Services;
+using BCSCH2_Semestralni_Prace.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +22,17 @@ namespace BCSCH2_Semestralni_Prace.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        LiteDBManager liteDBManager;
+        ViewModelOsoba viewModelOsoba;
+
         public MainWindow()
         {
             InitializeComponent();
-
+            
             MainGrid.Children.Clear();
             MainGrid.Children.Add(MainPage);
-        }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            liteDBManager = new LiteDBManager();
         }
 
         private void LoginBtt_Click(object sender, RoutedEventArgs e)
@@ -42,11 +44,14 @@ namespace BCSCH2_Semestralni_Prace.View
         {
             MainGrid.Children.Clear();
             MainGrid.Children.Add(RegistrationPage);
+
+            viewModelOsoba = new ViewModelOsoba();
+            this.DataContext = viewModelOsoba;
         }
 
         private void RegisterBtt_Click(object sender, RoutedEventArgs e)
         {
-
+            liteDBManager.SaveOsoba(viewModelOsoba);
         }
     }
 }

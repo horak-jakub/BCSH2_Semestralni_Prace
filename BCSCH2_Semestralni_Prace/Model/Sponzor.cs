@@ -10,5 +10,6 @@ namespace BCSCH2_Semestralni_Prace.Model
     {
         public int Id { get; set; }
         public float Dar { get; set; }
+
     }
 }
