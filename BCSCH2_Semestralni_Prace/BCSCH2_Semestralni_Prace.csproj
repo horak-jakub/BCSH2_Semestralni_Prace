@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Services\LiteDBManager.cs" />
+    <Compile Include="Services\PasswordServices.cs" />
     <Compile Include="ViewModel\ViewModelOsoba.cs" />
     <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

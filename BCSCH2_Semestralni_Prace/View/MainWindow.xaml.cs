@@ -37,7 +37,11 @@ namespace BCSCH2_Semestralni_Prace.View
 
         private void LoginBtt_Click(object sender, RoutedEventArgs e)
         {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(UserPage);
 
+            var viewModelOsoba = liteDBManager.LoadOsoba(UsernameBox.Text, PasswordBox.Text);
+            this.DataContext = viewModelOsoba;
         }
 
         private void RegistrationBtt_Click(object sender, RoutedEventArgs e)

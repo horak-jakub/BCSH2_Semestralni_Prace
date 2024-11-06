@@ -16,6 +16,11 @@ namespace BCSCH2_Semestralni_Prace.ViewModel
         {
             Osoba = new Osoba();
         }
+
+        public ViewModelOsoba(Osoba osoba)
+        {
+            Osoba = osoba;
+        }
     }
 
 }

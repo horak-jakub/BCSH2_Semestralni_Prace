@@ -82,6 +82,21 @@ namespace BCSCH2_Semestralni_Prace.Model
             }
         }
 
+        private string _hesloHash;
+        private string _hesloSalt;
+        public string HesloHash {
+            get => _hesloHash;
+            set
+            {
+                if (_hesloHash != value)
+                {
+                    (_hesloHash, _hesloSalt) = Services.PasswordServices.HashPassword(value);
+                }
+            }
+        }
+
+        public string HesloSalt { get => _hesloSalt; }
+
         private DateTime _datum;
         public DateTime Datum
         {
