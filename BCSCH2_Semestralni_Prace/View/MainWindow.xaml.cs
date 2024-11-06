@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BCSCH2_Semestralni_Prace
+namespace BCSCH2_Semestralni_Prace.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,30 @@ namespace BCSCH2_Semestralni_Prace
         public MainWindow()
         {
             InitializeComponent();
+
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(MainPage);
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void LoginBtt_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistrationBtt_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(RegistrationPage);
+        }
+
+        private void RegisterBtt_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

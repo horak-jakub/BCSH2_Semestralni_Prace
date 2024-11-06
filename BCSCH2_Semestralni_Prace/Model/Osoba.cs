@@ -13,6 +13,7 @@ namespace BCSCH2_Semestralni_Prace.Model
         public string Prijmeni { get; set; }
         public string Email { get; set; }
         public string Cislo { get; set; }
+        public DateTime Date { get; set; }
     }
 
     internal class Bezec

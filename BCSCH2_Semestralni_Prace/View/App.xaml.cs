@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace BCSCH2_Semestralni_Prace
+namespace BCSCH2_Semestralni_Prace.View
 {
     /// <summary>
     /// Interaction logic for App.xaml
