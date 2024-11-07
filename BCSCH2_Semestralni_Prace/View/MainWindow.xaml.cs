@@ -23,7 +23,7 @@ namespace BCSCH2_Semestralni_Prace.View
     public partial class MainWindow : Window
     {
         LiteDBManager liteDBManager;
-        ViewModelOsoba viewModelOsoba;
+        ViewModelOrganizator viewModelOrganizator;
 
         public MainWindow()
         {
@@ -40,8 +40,8 @@ namespace BCSCH2_Semestralni_Prace.View
             MainGrid.Children.Clear();
             MainGrid.Children.Add(UserPage);
 
-            var viewModelOsoba = liteDBManager.LoadOsoba(UsernameBox.Text, PasswordBox.Text);
-            this.DataContext = viewModelOsoba;
+            var viewModelOrganizator = liteDBManager.LoadOrganizator(UsernameBox.Text, PasswordBox.Text);
+            this.DataContext = viewModelOrganizator;
         }
 
         private void RegistrationBtt_Click(object sender, RoutedEventArgs e)
@@ -49,13 +49,16 @@ namespace BCSCH2_Semestralni_Prace.View
             MainGrid.Children.Clear();
             MainGrid.Children.Add(RegistrationPage);
 
-            viewModelOsoba = new ViewModelOsoba();
-            this.DataContext = viewModelOsoba;
+            viewModelOrganizator = new ViewModelOrganizator();
+            this.DataContext = viewModelOrganizator;
         }
 
         private void RegisterBtt_Click(object sender, RoutedEventArgs e)
         {
-            liteDBManager.SaveOsoba(viewModelOsoba);
+            liteDBManager.SaveOrganizator(viewModelOrganizator);
+
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(MainPage);
         }
     }
 }

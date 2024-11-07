@@ -23,4 +23,19 @@ namespace BCSCH2_Semestralni_Prace.ViewModel
         }
     }
 
+    internal class ViewModelOrganizator
+    {
+        public Organizator Organizator { get; set; }
+
+        public ViewModelOrganizator()
+        {
+            Organizator = new Organizator();
+        }
+
+        public ViewModelOrganizator(Organizator organizator)
+        {
+            Organizator = organizator;
+        }
+    }
+
 }

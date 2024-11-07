@@ -4,13 +4,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCSCH2_Semestralni_Prace.ViewModel;
 using LiteDB;
 
 namespace BCSCH2_Semestralni_Prace.Model
 {
+    enum TypOsoby { Bezec, Organizator }
+
     internal class Osoba : INotifyPropertyChanged
     {
         public ObjectId Id { get; set; }
+        public TypOsoby TypOsoby { get; protected set; }
+
 
         private string _jmeno;
         public string Jmeno
@@ -122,19 +127,41 @@ namespace BCSCH2_Semestralni_Prace.Model
     }
 
     enum Kategorie { od15do18, od18do30, od30do45, nad45 }
-    internal class Bezec
+    
+    internal class Bezec : Osoba
     {
         public ObjectId Id { get; set; }
-        public string Kategorie { get; set; }
+        public Kategorie Kategorie { get; set; }
 
+        public Bezec()
+        {
+            TypOsoby = TypOsoby.Bezec;
+        }
     }
 
-    internal class Organizator
+    internal class Organizator : Osoba
     {
         public ObjectId Id { get; set; }
-        public string Pozice { get; set; }
-        public double Plat {  get; set; }
-        public string AdminLevel { get; set; }
-        public Osoba Osoba { get; set; }
+        //public string Pozice { get; set; }
+        //public double Plat {  get; set; }
+        private string _pozice;
+        public string Pozice
+        {
+            get => _pozice;
+            set
+            {
+                if (_pozice != value)
+                {
+                    _pozice = value;
+                    OnPropertyChanged(nameof(Pozice));
+                }
+            }
+        }
+
+        public Organizator()
+        {
+            TypOsoby = TypOsoby.Organizator;
+        }
+
     }
 }
