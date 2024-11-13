@@ -17,43 +17,43 @@ namespace BCSCH2_Semestralni_Prace.Model
         public TypOsoby TypOsoby { get; protected set; }
 
 
-        private string _jmeno;
+        private string jmeno;
         public string Jmeno
         {
-            get => _jmeno;
+            get => jmeno;
             set
             {
-                if (_jmeno != value)
+                if (jmeno != value)
                 {
-                    _jmeno = value;
+                    jmeno = value;
                     OnPropertyChanged(nameof(Jmeno));
                 }
             }
         }
 
-        private string _prijmeni;
+        private string prijmeni;
         public string Prijmeni
         {
-            get => _prijmeni;
+            get => prijmeni;
             set
             {
-                if (_prijmeni != value)
+                if (prijmeni != value)
                 {
-                    _prijmeni = value;
+                    prijmeni = value;
                     OnPropertyChanged(nameof(Prijmeni));
                 }
             }
         }
 
-        private string _email;
+        private string email;
         public string Email
         {
-            get => _email;
+            get => email;
             set
             {
-                if (_email != value)
+                if (email != value)
                 {
-                    _email = value;
+                    email = value;
                     OnPropertyChanged(nameof(Email));
                 }
             }
@@ -73,29 +73,29 @@ namespace BCSCH2_Semestralni_Prace.Model
             }
         }
 
-        private string _uzivatelskeJmeno;
+        private string uzivatelskeJmeno;
         public string UzivatelskeJmeno
         {
-            get => _uzivatelskeJmeno;
+            get => uzivatelskeJmeno;
             set
             {
-                if (_uzivatelskeJmeno != value)
+                if (uzivatelskeJmeno != value)
                 {
-                    _uzivatelskeJmeno = value;
+                    uzivatelskeJmeno = value;
                     OnPropertyChanged(nameof(UzivatelskeJmeno));
                 }
             }
         }
 
-        private string _hesloHash;
+        private string hesloHash;
         private string _hesloSalt;
         public string HesloHash {
-            get => _hesloHash;
+            get => hesloHash;
             set
             {
-                if (_hesloHash != value)
+                if (hesloHash != value)
                 {
-                    (_hesloHash, _hesloSalt) = Services.PasswordServices.HashPassword(value);
+                    (hesloHash, _hesloSalt) = Services.PasswordServices.HashPassword(value);
                 }
             }
         }
@@ -144,15 +144,15 @@ namespace BCSCH2_Semestralni_Prace.Model
         public ObjectId Id { get; set; }
         //public string Pozice { get; set; }
         //public double Plat {  get; set; }
-        private string _pozice;
+        private string pozice;
         public string Pozice
         {
-            get => _pozice;
+            get => pozice;
             set
             {
-                if (_pozice != value)
+                if (pozice != value)
                 {
-                    _pozice = value;
+                    pozice = value;
                     OnPropertyChanged(nameof(Pozice));
                 }
             }
@@ -162,6 +162,13 @@ namespace BCSCH2_Semestralni_Prace.Model
         {
             TypOsoby = TypOsoby.Organizator;
         }
+
+        
+
+    }
+
+    internal class Administrator
+    {
 
     }
 }

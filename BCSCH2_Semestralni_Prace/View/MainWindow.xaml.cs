@@ -1,5 +1,4 @@
-﻿using BCSCH2_Semestralni_Prace.Services;
-using BCSCH2_Semestralni_Prace.ViewModel;
+﻿using BCSCH2_Semestralni_Prace.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +21,6 @@ namespace BCSCH2_Semestralni_Prace.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        LiteDBManager liteDBManager;
         ViewModelOrganizator viewModelOrganizator;
 
         public MainWindow()
@@ -31,8 +29,6 @@ namespace BCSCH2_Semestralni_Prace.View
             
             MainGrid.Children.Clear();
             MainGrid.Children.Add(MainPage);
-
-            liteDBManager = new LiteDBManager();
         }
 
         private void LoginBtt_Click(object sender, RoutedEventArgs e)
@@ -40,7 +36,7 @@ namespace BCSCH2_Semestralni_Prace.View
             MainGrid.Children.Clear();
             MainGrid.Children.Add(UserPage);
 
-            var viewModelOrganizator = liteDBManager.LoadOrganizator(UsernameBox.Text, PasswordBox.Text);
+            viewModelOrganizator = new ViewModelOrganizator(UsernameBox.Text, PasswordBox.Text);
             this.DataContext = viewModelOrganizator;
         }
 
@@ -55,7 +51,7 @@ namespace BCSCH2_Semestralni_Prace.View
 
         private void RegisterBtt_Click(object sender, RoutedEventArgs e)
         {
-            liteDBManager.SaveOrganizator(viewModelOrganizator);
+            viewModelOrganizator.Save();
 
             MainGrid.Children.Clear();
             MainGrid.Children.Add(MainPage);
